@@ -3,6 +3,8 @@ const app = express()
 const connection = require('./database/database')
 const categoriesController = require('./categories/categoriesController')
 const articlesController = require('./articles/articlesController')
+const Article = require('./articles/Article')
+const Category = require('./categories/Category')
 
 app.set('view engine', 'ejs')
 
