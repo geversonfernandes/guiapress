@@ -22,7 +22,7 @@ include('../../partials/navbar.ejs') %>
           <th><%=category.slug %></th>
           <th>
             <button class="btn btn-warning">Editar</button>
-            <form method="POST" action="/categories/delete" style="display: inline;">
+            <form method="POST" action="/categories/delete" style="display: inline" onsubmit="confirmCategoryDeletion(event, this)">
               <input type="hidden" name="id" value="<%= category.id %>">
               <button class="btn btn-danger">Deletar</button>
             </form>
@@ -33,3 +33,12 @@ include('../../partials/navbar.ejs') %>
   </table>
 </div>
 <%- include ('../../partials/footer.ejs') %>
+<script>
+  function confirmCategoryDeletion(event, form){
+    event.preventDefault()
+    const userDecision = confirm('Tem certeza que deseja deletar essa categoria ?')
+    if(userDecision){
+      form.submit()
+    }
+  }
+</script>
